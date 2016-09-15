@@ -101,7 +101,7 @@ class Server {
 		$this->server->addPlugin($acl);
 
 		// calendar plugins
-		$this->server->addPlugin(new \Sabre\CalDAV\Plugin());
+		$this->server->addPlugin(new \OCA\DAV\CalDAV\Plugin());
 		$this->server->addPlugin(new \Sabre\CalDAV\ICSExportPlugin());
 		$this->server->addPlugin(new \Sabre\CalDAV\Schedule\Plugin());
 		$this->server->addPlugin(new IMipPlugin($mailer, $logger));
@@ -110,7 +110,7 @@ class Server {
 		$this->server->addPlugin(new DAV\Sharing\Plugin($authBackend, \OC::$server->getRequest()));
 		$this->server->addPlugin(new \OCA\DAV\CalDAV\Publishing\PublishPlugin(
 			\OC::$server->getConfig(),
-			\OC::$server->getUrlGenerator()
+			\OC::$server->getURLGenerator()
 		));
 
 		// addressbook plugins
