@@ -123,19 +123,6 @@ class Application extends \OCP\AppFramework\App {
 
 		);
 
-		API::register('get',
-			'/apps/federation/api/v1/shared-secret',
-			array($auth, 'getSharedSecret'),
-			'federation',
-			API::GUEST_AUTH
-		);
-
-		API::register('post',
-			'/apps/federation/api/v1/request-shared-secret',
-			array($auth, 'requestSharedSecret'),
-			'federation',
-			API::GUEST_AUTH
-		);
 
 	}
 
