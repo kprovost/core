@@ -41,8 +41,8 @@ $application->registerRoutes($this, [
 	],
 	'ocs' => [
 		[
-			'name' => 'foo#bar',
-			'url' => '/api/v1/shares2',
+			'name' => 'sharees#search',
+			'url' => '/api/v1/sharees',
 			'verb' => 'GET',
 		]
 	]
@@ -123,20 +123,3 @@ API::register('delete',
 		'/apps/files_sharing/api/v1/remote_shares/{id}',
 		array('\OCA\Files_Sharing\API\Remote', 'unshare'),
 		'files_sharing');
-
-
-$sharees = new \OCA\Files_Sharing\API\Sharees(\OC::$server->getGroupManager(),
-                                              \OC::$server->getUserManager(),
-                                              \OC::$server->getContactsManager(),
-                                              \OC::$server->getConfig(),
-                                              \OC::$server->getUserSession(),
-                                              \OC::$server->getURLGenerator(),
-                                              \OC::$server->getRequest(),
-                                              \OC::$server->getLogger(),
-                                              \OC::$server->getShareManager());
-
-API::register('get',
-		'/apps/files_sharing/api/v1/sharees',
-		[$sharees, 'search'],
-		'files_sharing', API::USER_AUTH);
-
